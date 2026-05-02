@@ -221,7 +221,7 @@ icon.style.top = (e.clientY - offsetY) + "px"
 
 document.addEventListener("mouseup", function() {
 
-dragging = false
+dragging = fals
 
 })
 
