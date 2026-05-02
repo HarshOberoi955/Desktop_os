@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<style>
+
+body {
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg,#1e1e2f,#12121a);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
+margin:0;
+}
+
+.player{
+background:#2c2c44;
+padding:35px;
+border-radius:20px;
+text-align:center;
+width:320px;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.controls{
+display:flex;
+justify-content:center;
+gap:15px;
+}
+
+button{
+padding:12px 18px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-size:18px;
+background:#4caf50;
+color:white;
+}
+
+.play{
+background:#ff5252;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="player">
+
+<p id="songName">song</p>
+
+<div class="controls">
+<button onclick="previous()">⏮</button>
+<button class="play" onclick="playerPause()">▶ / ⏸</button>
+<button onclick="next()">⏭</button>
+</div>
+
+<audio id="audio"></audio>
+
+</div>
+
+<script>
+
+let songs = [
+"convo.mp3",
+"Drippy.mp3",
+"Not sure.mp3"
+];
+
+let songNames = [
+"convo",
+"Drippy",
+"Not sure"
+];
+
+let index = 0;
+
+let audio = document.getElementById("audio");
+
+audio.src = songs[index];
+document.getElementById("songName").innerHTML = songNames[index];
+
+function playerPause(){
+if(audio.paused){
+audio.play();
+}else{
+audio.pause();
+}
+}
+
+function next(){
+index++;
+if(index >= songs.length){
+index = 0;
+}
+audio.src = songs[index];
+audio.play();
+document.getElementById("songName").innerHTML = songNames[index];
+}
+
+function previous(){
+index--;
+if(index < 0){
+index = songs.length - 1;
+}
+audio.src = songs[index];
+audio.play();
+document.getElementById("songName").innerHTML = songNames[index];
+}
+
+audio.addEventListener("ended", next);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Web Desktop OS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="bootScreen">
+
+<div class="boot-logo">⚡ Harsh Oberoi OS ⚡</div>
+
+<div class="loader"></div>
+
+<p class="boot-text">Starting system...</p>
+
+</div>
+
+
+<!-- Desktop Icons -->
+
+<div class="icon desktop-icon" onclick="openApp('apps/calculator/calculator.html')">
+🧮
+<p>Calculator</p>
+</div>
+
+<div class="icon desktop-icon" onclick="openApp('apps/music/musicplayer.html')">
+🎵
+<p>Music</p>
+
+</div>
+
+<div class="icon desktop-icon" onclick="openApp('apps/weather/index.html')">
+🌦
+<p>Weather</p>
+
+</div>
+
+
+<div class="icon desktop-icon" onclick="openExplorer()">
+📂
+<p>File Explorr</p>
+
+</div>
+
+<!-- App Window -->
+
+<div class="window" id="appWindow">
+
+<div class="titlebar">
+<span>Application</span>
+<button onclick="closeApp()">❌</button>
+</div>
+
+<iframe id="appFrame"></iframe>
+
+<div class="resize-handle"></div>
+
+</div>
+
+
+<!-- Explorer Window -->
+
+<div class="window" id="explorer">
+
+<div class="titlebar">
+<span>File Explorer</span>
+<button onclick="closeExplorer()">❌</button>
+</div>
+
+<div class="content">
+
+<ul>
+
+<li onclick="openApp('apps/calculator/calculator.html')">
+🧮 Calculator
+</li>
+
+<li onclick="openApp('apps/weather/index.html')">
+🌦 Weather
+</li>
+
+<li onclick="openApp('apps/music/musicplayer.html')">
+🎵 Music
+</li>
+
+</ul>
+
+</div>
+
+<div class="resize-handle"></div>
+
+</div>
+
+
+<!-- Taskbar -->
+
+<div class="taskbar">
+
+<button class="start-btn" onclick="toggleStart()">Start</button>
+
+<div class="task-app">
+<span onclick="openApp('apps/calculator/calculator.html')">🧮</span>
+<span onclick="openApp('apps/weather/index.html')">🌦</span>
+<span onclick="openApp('apps/music/musicplayer.html')">🎵</span>
+</div>
+
+<div id="clock"></div>
+
+</div>
+
+
+<!-- Start Menu -->
+
+<div id="startMenu" class="start-menu">
+
+<p onclick="openApp('apps/calculator/calculator.html')">🧮 Calculator</p>
+
+<p onclick="openApp('apps/weather/index.html')">🌦 Weather</p>
+
+<p onclick="openApp('apps/music/musicplayer.html')">🎵 Music</p>
+
+</div>
+
+
+<!-- RIGHT CLICK MENU -->
+
+<div id="desktopMenu" class="desktop-menu">
+
+<div onclick="refreshDesktop()">🔄 Refresh</div>
+
+<div onclick="createFolder()">📁 New Folder</div>
+
+<hr>
+
+<div onclick="changeWallpaper()">🖼 Change Wallpaper</div>
+
+<div onclick="openSettings()">⚙ Settings</div>
+
+</div>
+
+
+<!-- SCRIPT MUST BE LAST -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
